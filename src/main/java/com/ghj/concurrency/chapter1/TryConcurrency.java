@@ -19,13 +19,21 @@ public class TryConcurrency {
 
     public static void main(String[] args) {
 
-        new Thread("READE-Thread"){
+       /* new Thread("READE-Thread"){
             @Override
             public void run(){
                 readFromDataBase();
             }
-        }.start();
-
+        }.start();*/
+       Thread t1 = new Thread("READE-Thread") {
+           @Override
+           public void run() {
+               println(Thread.currentThread().getName());
+               readFromDataBase();
+           }
+       };
+       t1.start();//READE-Thread,但是要是没有t1.start()、该线程就不会启动，
+        //println(Thread.currentThread().getName());直接调用run()方法时，该方法获得的线程就是main线程
         new Thread("WRITE-Thread"){
             @Override
             public void run(){
