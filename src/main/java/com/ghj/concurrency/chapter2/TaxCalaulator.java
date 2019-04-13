@@ -19,6 +19,16 @@ public class TaxCalaulator {
 
     private final double bonus;
 
+    private  CalculatorStrategy calculatorStrategy;
+
+    public CalculatorStrategy getCalculatorStrategy() {
+        return calculatorStrategy;
+    }
+
+    public void setCalculatorStrategy(CalculatorStrategy calculatorStrategy) {
+        this.calculatorStrategy = calculatorStrategy;
+    }
+
     public TaxCalaulator(double salary, double bonus ){
         this.bonus = bonus;
         this.salary = salary;
@@ -26,7 +36,7 @@ public class TaxCalaulator {
 
     public double calcTax(){
 
-        return 0.0d;
+        return calculatorStrategy.calculate(salary, bonus );
     }
 
     public double calculate(){

@@ -22,7 +22,7 @@ import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
  */
 public class TaxCalaulatorMain {
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         TaxCalaulator taxCalaulator = new TaxCalaulator(10000d, 2000d){
             @Override
             public double calcTax(){
@@ -31,5 +31,18 @@ public class TaxCalaulatorMain {
         };
         double tax = taxCalaulator.calculate();
         System.out.println(tax);
-    }
+    }*/
+   public static void main(String[] args) {
+
+       TaxCalaulator calaulator = new TaxCalaulator(10000d,2000d);
+
+       CalculatorStrategy strategy = new SimpleCalculatorStrategy();
+
+       calaulator.setCalculatorStrategy(strategy);
+
+       System.out.println(calaulator.calculate());
+   }
+
+
+
 }
